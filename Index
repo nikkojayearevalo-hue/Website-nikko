@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SDIHS | School Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef6fb;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* ===== ROTATED PRESENTATION MODE ===== */
+        body.presentation {
+            transform: rotate(90deg);
+            transform-origin: center center;
+            width: 100vh;
+            height: 100vw;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, #0288d1, #4fc3f7);
+            color: white;
+            padding: 32px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 48px;
+            letter-spacing: 1.5px;
+        }
+
+        header p {
+            font-size: 20px;
+            margin-top: 6px;
+        }
+
+        /* PRESENTATION BUTTON */
+        .fullscreen-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: white;
+            color: #0288d1;
+            border: none;
+            padding: 12px 18px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* MAIN LAYOUT */
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: auto;
+            min-height: calc(100vh - 160px);
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            width: 260px;
+            background: #0d47a1;
+            padding: 24px 16px;
+        }
+
+        .sidebar h2 {
+            color: #bbdefb;
+            font-size: 22px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 14px 18px;
+            margin-bottom: 12px;
+            font-size: 18px;
+            text-decoration: none;
+            color: white;
+            background: rgba(255,255,255,0.08);
+            transition: 0.25s;
+        }
+
+        .sidebar a:hover {
+            background: #1976d2;
+            padding-left: 24px;
+        }
+
+        /* MAIN CONTENT */
+        .main {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .main h2 {
+            font-size: 38px;
+            color: #0d47a1;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        /* QUARTERS */
+        .quarters {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 28px;
+        }
+
+        .quarter {
+            background: white;
+            padding: 36px 28px;
+            text-align: center;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+        }
+
+        .quarter h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #0288d1;
+        }
+
+        .quarter p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .quarter a {
+            display: inline-block;
+            padding: 12px 26px;
+            font-size: 18px;
+            background: #0288d1;
+            color: white;
+            text-decoration: none;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #0d47a1;
+            color: white;
+            text-align: center;
+            padding: 18px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>SDIHS SCHOOL PORTAL</h1>
+    <p>Santo Domingo Integrated High School</p>
+    <button class="fullscreen-btn" onclick="togglePresentation()">⛶ Presentation Mode</button>
+</header>
+
+<div class="container">
+    <div class="sidebar">
+        <h2>Navigation</h2>
+        <a href="#"> Home</a>
+        <a href="#"> School Profile</a>
+        <a href="LindolorLIST.html"> Earthquake</a>
+        <a href="#"> Table</a>
+    </div>
+
+    <div class="main">
+        <h2>Quarter Activities</h2>
+
+        <div class="quarters">
+            <div class="quarter">
+                <h3>Quarter 1</h3>
+                <p>Activities and performance tasks</p>
+                <a href="#">View Activities</a>
+            </div>
+
+            <div class="quarter">
+                <h3>Quarter 2</h3>
+                <p>Projects and written works</p>
+                <a href="Duc2.html">View Activities</a>
+            </div>
+
+            <div class="quarter">
+                <h3>Quarter 3</h3>
+                <p>Hands-on and assessments</p>
+                <a href="Duc3.html">View Activities</a>
+            </div>
+
+            <div class="quarter">
+                <h3>Quarter 4</h3>
+                <p>Final outputs and presentations</p>
+                <a href="#">View Activities</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    nikkojayearevalo@gmail.com | 09949827954
+</footer>
+
+<script>
+function togglePresentation() {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+        document.body.classList.add("presentation");
+    } else {
+        document.exitFullscreen();
+        document.body.classList.remove("presentation");
+    }
+}
+
+/* Safety: remove rotation if user presses ESC */
+document.addEventListener("fullscreenchange", () => {
+    if (!document.fullscreenElement) {
+        document.body.classList.remove("presentation");
+    }
+});
+</script>
+
+</body>
+</html>
